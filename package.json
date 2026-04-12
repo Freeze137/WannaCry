@@ -1,0 +1,10 @@
+{
+  "name": "wannacry-simulacao",
+  "version": "1.0.0",
+  "description": "Simulação arquitetural acadêmica inspirada no WannaCry",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "license": "MIT"
+}
