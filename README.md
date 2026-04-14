@@ -1,86 +1,48 @@
 # Simulação Arquitetural do WannaCry
 
-Este repositório apresenta uma implementação parcial e acadêmica de uma solução arquitetural baseada em uma simulação do comportamento do ransomware WannaCry.
-
-O objetivo é demonstrar a estrutura da solução, com foco em organização do código, separação por camadas, uso de dados mockados e entradas simuladas.
-
-> Aviso ético: este projeto não executa exploração real, criptografia real, propagação real, Tor real ou transações reais em Bitcoin. Todo o fluxo é estritamente simulado para fins acadêmicos.
+## Descrição
+Este projeto apresenta uma simulação educacional de uma arquitetura moderna de detecção, monitoramento e resposta a incidentes, inspirada nas lições aprendidas com o caso WannaCry. O foco do projeto não é reproduzir malware real, mas demonstrar como decisões arquiteturais adequadas podem reduzir impacto, propagação e indisponibilidade em ambientes críticos.
 
 ## Objetivo
+Simular um fluxo arquitetural de identificação de ativos vulneráveis, detecção de eventos suspeitos, geração de alertas e execução de ações automatizadas de contenção, considerando uma proposta de solução para o contexto de 2026.
 
-Representar, de forma controlada, os principais elementos do diagrama arquitetural:
-- vulnerabilidade;
-- computador alvo;
-- infecção;
-- arquivos afetados;
-- chave de criptografia simulada;
-- propagação lateral;
-- pedido de resgate;
-- carteira Bitcoin fictícia.
+## Características
+- Inventário de hosts com dados mockados
+- Simulação de eventos de risco e tentativa de exploração
+- Detecção de comportamento suspeito
+- Seleção de estratégia de resposta
+- Isolamento lógico de hosts comprometidos
+- Registro de logs e eventos
+- Visualização simplificada do estado do sistema
 
-## Arquitetura da solução
+## Arquitetura
+A solução foi projetada com arquitetura híbrida baseada em microservices orientados a eventos. Os principais módulos são:
+- Inventory Service: mantém os ativos monitorados
+- Detection Service: avalia eventos e classifica risco
+- Response Service: aplica políticas de contenção
+- Monitoring Service: registra logs, métricas e eventos
+- Dashboard: apresenta o estado da simulação
 
-A organização do projeto segue uma arquitetura em camadas:
+A comunicação entre os módulos ocorre por eventos, favorecendo desacoplamento, escalabilidade e resiliência.
 
-```text
-src/
-├── application/
-│   ├── PedidoResgateService.js
-│   └── PropagacaoService.js
-├── domain/
-│   ├── ChaveCriptografia.js
-│   ├── ComputadorAlvo.js
-│   ├── DadosArquivo.js
-│   ├── Infeccao.js
-│   └── Vulnerabilidade.js
-├── infrastructure/
-│   └── ConsoleLogger.js
-├── mocks/
-│   └── computadores.js
-└── main.js
-```
-
-### Camadas
-
-- **Domain:** contém entidades e regras centrais da simulação.
-- **Application:** contém os serviços que orquestram o fluxo de propagação e resgate.
-- **Infrastructure:** contém componentes técnicos de apoio, como logging.
-- **Mocks:** contém os dados simulados usados na execução da solução.
-
-## Fluxo da simulação
-
-1. Carregar os computadores mockados.
-2. Selecionar um host inicial.
-3. Verificar se o computador está vulnerável à CVE-2017-0144.
-4. Simular a infecção.
-5. Marcar arquivos como criptografados logicamente.
-6. Simular a propagação lateral para outros hosts.
-7. Gerar um pedido de resgate fictício.
-8. Exibir o log final da execução.
+## Design Patterns utilizados
+- Strategy: seleção de políticas de resposta
+- Observer: notificação de eventos para múltiplos componentes
+- Factory: criação padronizada de agentes e serviços
+- Circuit Breaker: prevenção de falhas em cascata
+- Singleton: centralização controlada de configurações globais
 
 
-## Estrutura do repositório
+## Estrutura do projeto
+- /src/inventory
+- /src/detection
+- /src/response
+- /src/monitoring
+- /src/dashboard
+- /docs
 
-```text
-wannacry-simulacao/
-├── docs/
-│   └── arquitetura.md
-├── src/
-│   ├── application/
-│   ├── domain/
-│   ├── infrastructure/
-│   ├── mocks/
-│   └── main.js
-├── .gitignore
-├── package.json
-└── README.md
-```
-
-## Observações acadêmicas
-
-- Implementação parcial.
-- Dados totalmente mockados.
-- Entradas simuladas.
-- Sem exploração real.
-- Sem persistência externa.
-- Foco em arquitetura e organização do código.
+## Observações
+Este projeto é exclusivamente acadêmico e educacional.
+Nenhum malware real é executado.
+Nenhuma vulnerabilidade é explorada de forma real.
+Toda a dinâmica do sistema é simulada com dados e eventos mockados.
